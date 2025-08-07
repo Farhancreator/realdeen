@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دعوت اصلاح | اسلامی وسائل - فرحان</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #1a472a;
+            --secondary: #2e8b57;
+            --accent: #d4af37;
+            --light: #f8f5e9;
+            --dark: #0d2818;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            direction: rtl;
+            background: linear-gradient(135deg, #f0f7da 0%, #e3f2c1 100%);
+            color: #333;
+            line-height: 1.8;
+            background-attachment: fixed;
+            min-height: 100vh;
+            padding-bottom: 60px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--light);
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            border-bottom: 5px solid var(--accent);
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+            opacity: 0.2;
+            z-index: 1;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            color: #fff;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+        
+        .creator-info {
+            background: rgba(0,0,0,0.2);
+            padding: 10px 20px;
+            border-radius: 30px;
+            margin-top: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(to right, var(--accent), #c19b30);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .action-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .action-btn.quran {
+            background: linear-gradient(to right, #1a472a, #2e8b57);
+        }
+        
+        .action-btn.hadith {
+            background: linear-gradient(to right, #8B4513, #A0522D);
+        }
+        
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+        
+        .welcome-section {
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .welcome-section::before {
+            content: "ﷴ";
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            font-size: 3rem;
+            color: rgba(26, 71, 42, 0.05);
+            z-index: 0;
+        }
+        
+        .welcome-section p {
+            font-size: 1.4rem;
+            line-height: 1.9;
+            color: #444;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 2rem;
+        }
+        
+        .resource-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #eaeaea;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+        
+        .card-body {
+            padding: 1.8rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .resource-list {
+            list-style: none;
+            flex-grow: 1;
+        }
+        
+        .resource-item {
+            padding: 1rem 0;
+            border-bottom: 1px dashed #e0e0e0;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.2s;
+        }
+        
+        .resource-item:last-child {
+            border-bottom: none;
+        }
+        
+        .resource-item:hover {
+            background-color: #f9f9f9;
+        }
+        
+        .resource-icon {
+            margin-left: 15px;
+            color: var(--secondary);
+            font-size: 1.4rem;
+            min-width: 30px;
+            text-align: center;
+        }
+        
+        .resource-link {
+            color: var(--dark);
+            text-decoration: none;
+            font-size: 1.25rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            transition: color 0.2s;
+            flex-grow: 1;
+        }
+        
+        .resource-link:hover {
+            color: var(--secondary);
+        }
+        
+        .resource-link:hover .resource-icon {
+            animation: bounce 0.6s ease;
+        }
+        
+        .resource-description {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 8px;
+            margin-right: 35px;
+            line-height: 1.5;
+        }
+        
+        /* Online Resources Section */
+        .online-resources {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .online-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent);
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .online-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .online-card i {
+            font-size: 3.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .online-card h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .online-card p {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.15);
+            background: linear-gradient(to right, var(--secondary), var(--primary));
+        }
+        
+        .btn i {
+            margin-left: 8px;
+            font-size: 1rem;
+        }
+        
+        /* Islamic Art Section */
+        .art-section {
+            margin: 4rem 0;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .islamic-art {
+            max-width: 800px;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        .art-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.2) 0px, transparent 50px),
+                radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.2) 0px, transparent 50px),
+                radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0px, transparent 100px);
+        }
+        
+        .art-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .art-content h2 {
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            line-height: 1.4;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
+            color: white;
+            padding: 2.5rem 0;
+            text-align: center;
+            margin-top: 3rem;
+            position: relative;
+        }
+        
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), #c19b30);
+        }
+        
+        .footer-content {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-content p {
+            margin: 1rem 0;
+            font-size: 1.1rem;
+            opacity: 0.85;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        /* Decorative Elements */
+        .islamic-pattern {
+            position: absolute;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .pattern-1 {
+            top: 10%;
+            left: 5%;
+            width: 150px;
+            height: 150px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,0 C77.61,0 100,22.39 100,50 C100,77.61 77.61,100 50,100 C22.39,100 0,77.61 0,50 C0,22.39 22.39,0 50,0 Z M50,10 C27.91,10 10,27.91 10,50 C10,72.09 27.91,90 50,90 C72.09,90 90,72.09 90,50 C90,27.91 72.09,10 50,10 Z" fill="%231a472a"/></svg>');
+            background-size: contain;
+            transform: rotate(45deg);
+        }
+        
+        .pattern-2 {
+            bottom: 15%;
+            right: 8%;
+            width: 120px;
+            height: 120px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="50,0 65,35 100,35 70,57 85,100 50,75 15,100 30,57 0,35 35,35" fill="%232e8b57"/></svg>');
+            background-size: contain;
+        }
+        
+        /* Animations */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .welcome-section {
+                padding: 1.8rem;
+            }
+            
+            .resource-grid, .online-resources {
+                grid-template-columns: 1fr;
+            }
+            
+            .card-header {
+                font-size: 1.4rem;
+            }
+            
+            .action-btn {
+                padding: 12px 20px;
+                font-size: 1rem;
+            }
+            
+            .art-content h2 {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .welcome-section p {
+                font-size: 1.2rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .action-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+        
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+        
+        .mb-3 {
+            margin-bottom: 3rem;
+        }
+        
+        .mt-3 {
+            margin-top: 3rem;
+        }
+        
+        .divider {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            margin: 2rem auto;
+            width: 80%;
+            border: none;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin: 3rem 0 2rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Decorative Background Elements -->
+    <div class="islamic-pattern pattern-1"></div>
+    <div class="islamic-pattern pattern-2"></div>
+    
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>دعوت اصلاح</h1>
+                <div class="subtitle">فرحان کی طرف سے خوش آمدید</div>
+                
+                <div class="creator-info">
+                    <i class="fas fa-envelope"></i> farhanm180408@gmail.com
+                </div>
+                
+                <div class="action-buttons">
+                    <a href="https://quran.com/" target="_blank" class="action-btn quran">
+                        <i class="fas fa-book-quran"></i> قرآن پاک کھولیں
+                    </a>
+                    <a href="https://hamariweb.com/islam/hadith/" target="_blank" class="action-btn hadith">
+                        <i class="fas fa-book"></i> احادیث کی کتابیں کھولیں
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section class="welcome-section fade-in">
+            <p>
+                یہ ویب سائٹ اسلامی تعلیمات اور مقدس کتب تک رسائی فراہم کرنے کے لیے بنائی گئی ہے۔ 
+                اوپر دیے گئے بٹنز سے قرآن پاک اور احادیث کی کتابیں براہ راست کھولی جا سکتی ہیں۔ 
+                اللہ تعالیٰ ہم سب کو دین کی صحیح سمجھ عطا فرمائے۔
+            </p>
+        </section>
+        
+        <hr class="divider">
+        
+        <div class="art-section fade-in">
+            <div class="islamic-art">
+                <div class="art-pattern"></div>
+                <div class="art-content">
+                    <h2>اِقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ</h2>
+                </div>
+            </div>
+        </div>
+        
+        <h2 class="section-title fade-in">قرآن و حدیث کے وسائل</h2>
+        
+        <div class="resource-grid">
+            <!-- Quran Section -->
+            <div class="resource-card fade-in">
+                <div class="card-header">
+                    <i class="fas fa-book-quran"></i> قرآن پاک
+                </div>
+                <div class="card-body">
+                    <ul class="resource-list">
+                        <li class="resource-item">
+                            <a href="https://quran.com/" target="_blank" class="resource-link">
+                                <span class="resource-icon"><i class="fas fa-globe"></i></span>
+                                قرآن پاک آن لائن
+                            </a>
+                            <div class="resource-description">
+                                مکمل قرآن پاک مع تجوید اور اردو ترجمہ
+                            </div>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://quranicaudio.com/" target="_blank" class="resource-link">
+                                <span class="resource-icon"><i class="fas fa-music"></i></span>
+                                قرآن پاک آڈیو
+                            </a>
+                            <div class="resource-description">
+                                مشہور قاریوں کی تلاوت سنیں
+                            </div>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://archive.org/details/tafheemulquranmaulanamaududi" target="_blank" class="resource-link">
+                                <span class="resource-icon"><i class="fas fa-book-open"></i></span>
+                                تفسیر قرآن (تفہیم القرآن)
+                            </a>
+                            <div class="resource-description">
+                                مولانا مودودی کی تفسیر
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Hadith Books Section -->
+            <div class="resource-card fade-in">
+                <div class="card-header">
+                    <i class="fas fa-book"></i> احادیث کی کتابیں
+                </div>
+                <div class="card-body">
+                    <ul class="resource-list">
+                        <li class="resource-item">
+                            <a href="https://hamariweb.com/islam/hadith/" target="_blank" class="resource-link">
+                                <span class="resource-icon"><i class="fas fa-globe"></i></span>
+                                احادیث آن لائن
+                            </a>
+                            <div class="resource-description">
+                                معتبر احادیث کی کتب اردو ترجمہ کے ساتھ
+                            </div>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://hamariweb.com/islam/sahih-bukhari-pdf_1" target="_blank" class="resource-link">
+                                <span class="resource-icon"><i class="fas fa-file-pdf"></i></span>
+                                صحیح بخاری (PDF)
+                            </a>
+                            <div class="resource-description">
+                                امام بخاری رحمہ اللہ کی مجموعہ احادیث
+                            </div>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://archive.org/details/CompleteSahihMuslimHadithInURDU/Sahih_Muslim_1/" target="_blank" class="resource-link">
+                                <span class="resource-icon"><i class="fas fa-file-pdf"></i></span>
+                                صحیح مسلم (PDF)
+                            </a>
+                            <div class="resource-description">
+                                امام مسلم رحمہ اللہ کی مجموعہ احادیث
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Islamic Books Section -->
+            <div class="resource-card fade-in">
+                <div class="card-header">
+                    <i class="fas fa-books"></i> اسلامی کتب
+                </div>
+                <div class="card-body">
+                    <ul class="resource-list">
+                        <li class="resource-item">
+                            <a href="https://www.slideshare.net/slideshow/fiqh-e-islami/33673155" target="_blank" class="resource-link">
+                                <span class="resource-icon"><i class="fas fa-scale-balanced"></i></span>
+                                فقہ اسلامی
+                            </a>
+                            <div class="resource-description">
+                                اسلامی فقہ سے متعلق کتاب
+                            </div>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://archive.org/details/al-fiqh-ul-muyassar-urdu/page/n125/mode/2up" target="_blank" class="resource-link">
+                                <span class="resource-icon"><i class="fas fa-book"></i></span>
+                                الفقہ المیسر
+                            </a>
+                            <div class="resource-description">
+                                آسان فقہی مسائل
+                            </div>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://archive.org/details/20220328_20220328_0700" target="_blank" class="resource-link">
+                                <span class="resource-icon"><i class="fas fa-hands-praying"></i></span>
+                                دعاؤں کا مجموعہ
+                            </a>
+                            <div class="resource-description">
+                                روزمرہ کی مسنون دعائیں
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <h2 class="section-title fade-in">اسلامی تاریخ اور دیگر وسائل</h2>
+        
+        <div class="resource-grid">
+            <!-- Islamic History Section -->
+            <div class="resource-card fade-in">
+                <div class="card-header">
+                    <i class="fas fa-landmark"></i> اسلامی تاریخ
+                </div>
+                <div class="card-body">
+                    <ul class="resource-list">
+                        <li class="resource-item">
+                            <a href="https://tareekh.uloom.com/" target="_blank" class="resource-link">
+                                <span class="resource-icon"><i class="fas fa-globe"></i></span>
+                                تاریخ اسلام
+                            </a>
+                            <div class="resource-description">
+                                اسلام کی شاندار تاریخ
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- YouTube Section -->
+            <div class="resource-card fade-in">
+                <div class="card-header">
+                    <i class="fab fa-youtube"></i> یوٹیوب چینلز
+                </div>
+                <div class="card-body">
+                    <ul class="resource-list">
+                        <li class="resource-item">
+                            <a href="https://www.youtube.com/@EngineerMuhammadAliMirzaClips" target="_blank" class="resource-link">
+                                <span class="resource-icon"><i class="fab fa-youtube"></i></span>
+                                انجینئر محمد علی مرزا
+                            </a>
+                            <div class="resource-description">
+                                اسلامی لیکچرز اور تقاریر
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Social Media Section -->
+            <div class="resource-card fade-in">
+                <div class="card-header">
+                    <i class="fas fa-share-alt"></i> سوشل میڈیا
+                </div>
+                <div class="card-body">
+                    <ul class="resource-list">
+                        <li class="resource-item">
+                            <a href="https://www.instagram.com/engineermuhammadaliofficial/" target="_blank" class="resource-link">
+                                <span class="resource-icon"><i class="fab fa-instagram"></i></span>
+                                انسٹاگرام پیج
+                            </a>
+                            <div class="resource-description">
+                                انجینئر محمد علی مرزا کا آفیشل پیج
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <h2 class="section-title fade-in">قرآن کریم سے منتخب آیات</h2>
+        
+        <div class="welcome-section fade-in">
+            <p style="font-size: 1.6rem; line-height: 2.2; font-weight: 500; color: var(--primary);">
+                "بے شک نماز بے حیائی اور برائی سے روکتی ہے" (سورہ العنکبوت: 45)
+            </p>
+            <p style="font-size: 1.6rem; line-height: 2.2; font-weight: 500; color: var(--secondary); margin-top: 20px;">
+                "اور تم سب مل کر اللہ کی رسی کو مضبوطی سے تھام لو اور تفرقے میں نہ پڑو" (سورہ آل عمران: 103)
+            </p>
+        </div>
+    </main>
+    
+    <footer class="fade-in">
+        <div class="container">
+            <div class="footer-content">
+                <p>
+                    <i class="fas fa-info-circle"></i> تمام مواد صرف تعلیمی مقاصد کے لیے پیش کیا گیا ہے
+                </p>
+                <p>
+                    <i class="fas fa-envelope"></i> رابطہ: farhanm180408@gmail.com
+                </p>
+                
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.youtube.com/@EngineerMuhammadAliMirzaClips" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/engineermuhammadaliofficial/" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+                
+                <p>
+                    &copy; 2023 دعوت اصلاح | تمام حقوق محفوظ ہیں
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
